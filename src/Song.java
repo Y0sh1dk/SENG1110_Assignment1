@@ -12,13 +12,37 @@ public class Song
 	private String genre;
 	
 	//add comments
-	public void setName(String inputName)
-	{
+	public void setName(String inputName) {
 		 name = inputName;
 	}
-	public String getName()
-	{
+
+	public String getName() {
 		return name;
 	}
+
+	public void setArtist (String inputArtist) {
+		artist = inputArtist;
+	}
+
+	public String getArtist() {
+		return artist;
+	}
+
+	public void setDuration(int inputDuration) {
+		duration = inputDuration;
+	}
+
+	public int getDuration() {
+		return duration;
+	}
+
+	public void setGenre(String inputGenre) {
+		genre = inputGenre;
+	}
+
+	public String getGenre() {
+		return genre;
+	}
+
 	//add other methods
 }
