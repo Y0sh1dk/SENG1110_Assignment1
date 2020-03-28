@@ -1,48 +1,57 @@
-/**
- * Write a description of class Song here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
-public class Song
-{
+public class Song {
+
 	private String name;
 	private String artist;
 	private int duration;
 	private String genre;
-	
-	//add comments
+
+	// Song constructor when args are given
+	public Song(String inputName, String inputArtist, int inputDuration, String inputGenre) {
+		this.name = inputName;
+		this.artist = inputArtist;
+		this.duration = inputDuration;
+		this.genre = inputGenre;
+	}
+
+	// Song constructor when no args are given
+	public Song() {
+		this.name = null;
+		this.artist = null;
+		this.duration = 0;
+		this.genre = null;
+	}
+
+
+
 	public void setName(String inputName) {
-		 name = inputName;
+		 this.name = inputName;
 	}
 
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 	public void setArtist (String inputArtist) {
-		artist = inputArtist;
+		this.artist = inputArtist;
 	}
 
 	public String getArtist() {
-		return artist;
+		return this.artist;
 	}
 
 	public void setDuration(int inputDuration) {
-		duration = inputDuration;
+		this.duration = inputDuration;
 	}
 
 	public int getDuration() {
-		return duration;
+		return this.duration;
 	}
 
 	public void setGenre(String inputGenre) {
-		genre = inputGenre;
+		this.genre = inputGenre;
 	}
 
 	public String getGenre() {
-		return genre;
+		return this.genre;
 	}
-
-	//add other methods
 }
