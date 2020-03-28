@@ -58,16 +58,16 @@ public class Album {
     public int addSong(String inputName, String inputArtist, int inputDuration, String inputGenre) {
         this.calculateTotalTime();
         if (this.totalTime + inputDuration <= this.MAX_TIME) {
-            if (song1 == null) {
+            if (this.song1 == null) {
                 this.song1 = new Song(inputName, inputArtist, inputDuration, inputGenre);
                 return 1;
-            } else if (song2 == null) {
+            } else if (this.song2 == null) {
                 this.song2 = new Song(inputName, inputArtist, inputDuration, inputGenre);
                 return 1;
-            } else if (song3 == null) {
+            } else if (this.song3 == null) {
                 this.song3 = new Song(inputName, inputArtist, inputDuration, inputGenre);
                 return 1;
-            } else if (song4 == null) {
+            } else if (this.song4 == null) {
                 this.song4 = new Song(inputName, inputArtist, inputDuration, inputGenre);
                 return 1;
             } else {
