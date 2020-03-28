@@ -7,6 +7,8 @@ public class Album {
     private final int MAX_TIME = 720; //12 minutes
 
 
+
+
 //  Constructor if args given
     public Album(String inputName) {
         this.name = inputName;
@@ -16,6 +18,10 @@ public class Album {
 //  Constructor if no args given
     public Album() {
         this.name = null;
+//        song1 = new Song();
+//        song2 = new Song();
+//        song3 = new Song();
+//        song4 = new Song();
     }
 
 
@@ -29,40 +35,63 @@ public class Album {
 
 //    TODO: test listSongs method
     public String listSongs() {
-        String songList = null;
-        if (song1.getName() != null) {
-            songList += song1.getName();
+        String songList = "";
+        if (song1 != null) {
+            songList += song1.getName() + "\n";
         }
-        if (song2.getName() != null) {
-            songList += song2.getName();
+        if (song2 != null) {
+            songList += song2.getName() + "\n";
         }
-        if (song3.getName() != null) {
-            songList += song3.getName();
+        if (song3 != null) {
+            songList += song3.getName() + "\n";
         }
-        if (song4.getName() != null) {
-            songList += song4.getName();
+        if (song4 != null) {
+            songList += song4.getName() + "\n";
         }
         return songList;
     }
 
 
 
-//    Add song to Album
-    public void addSong() {
-        if (song1.getName() == null) {
-
-        } else if (song2.getName() == null) {
-
-        } else if (song3.getName() == null) {
-
-        } else if (song4.getName() == null) {
-
+//    Adds song to Album, Will try song1 first, then song2, song3...
+//    Return 1 if successful, return 0 if unsucessful
+    public int addSong(String inputName, String inputArtist, int inputDuration, String inputGenre) {
+        this.calculateTotalTime();
+        if (this.totalTime + inputDuration <= this.MAX_TIME) {
+            if (song1 == null) {
+                this.song1 = new Song(inputName, inputArtist, inputDuration, inputGenre);
+                return 1;
+            } else if (song2 == null) {
+                this.song2 = new Song(inputName, inputArtist, inputDuration, inputGenre);
+                return 1;
+            } else if (song3 == null) {
+                this.song3 = new Song(inputName, inputArtist, inputDuration, inputGenre);
+                return 1;
+            } else if (song4 == null) {
+                this.song4 = new Song(inputName, inputArtist, inputDuration, inputGenre);
+                return 1;
+            } else {
+                return 0;
+            }
+        } else {
+            return 0;
         }
     }
 
 //    Calculate total runtime of all songs
     private void calculateTotalTime() {
-        this.totalTime = song1.getDuration() + song2.getDuration() + song3.getDuration() + song4.getDuration();
+        this.totalTime = 0;
+        int time = 0;
+        if (this.song1 != null) {
+            time += this.song1.getDuration();
+        } if (this.song2 != null) {
+            time += this.song2.getDuration();
+        } if (this.song3 != null) {
+            time += this.song3.getDuration();
+        } if (this.song4 != null) {
+            time += this.song4.getDuration();
+        }
+        this.totalTime = time;
     }
 
 

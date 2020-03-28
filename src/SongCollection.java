@@ -5,6 +5,7 @@ public class SongCollection
 	private Album album1, album2, album3;
 
 	public void run(){
+
 	}
 
 	private void createAlbum() {
@@ -22,15 +23,16 @@ public class SongCollection
 //	TODO: test listAlbums()
 	private void listAlbums() {
 		String albumList = null;
-		if (album1.getName() != null) {
-			albumList += album1.getName();
+		if (album1 != null) {
+			albumList += album1.getName() + "\n";
 		}
-		if (album2.getName() != null) {
-			albumList += album2.getName();
+		if (album2 != null) {
+			albumList += album2.getName() + "\n";
 		}
-		if (album3.getName() != null) {
-			albumList += album3.getName();
+		if (album3 != null) {
+			albumList += album3.getName() + "\n";
 		}
+		System.out.println(albumList);
 	}
 
 	private void listSongsUnderTime(int maxtime) {
