@@ -5,6 +5,7 @@ public class Song {
 	private int duration;
 	private String genre;
 
+
 	// Song constructor when args are given
 	public Song(String inputName, String inputArtist, int inputDuration, String inputGenre) {
 		this.name = inputName;
