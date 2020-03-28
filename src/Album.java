@@ -14,13 +14,22 @@ public class Album {
     }
 
 
-    
     public void setName (String inputName) {
         name = inputName;
     }
 
     public String getName() {
         return name;
+    }
+
+    public String listSongs() {
+        return null;
+    }
+
+
+//    Calculate total runtime of all songs
+    private void calculateTotalTime() {
+        this.totalTime = song1.getDuration() + song2.getDuration() + song3.getDuration() + song4.getDuration();
     }
 
 }
