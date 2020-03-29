@@ -7,15 +7,13 @@ public class Album {
     private final int MAX_TIME = 720; //12 minutes
 
 
-
-
-//  Constructor if args given
+    //  Constructor if args given
     public Album(String inputName) {
         this.name = inputName;
 
     }
 
-//  Constructor if no args given
+    //  Constructor if no args given
     public Album() {
         this.name = null;
 //        song1 = new Song();
@@ -25,7 +23,7 @@ public class Album {
     }
 
 
-    public void setName (String inputName) {
+    public void setName(String inputName) {
         name = inputName;
     }
 
@@ -33,7 +31,7 @@ public class Album {
         return name;
     }
 
-//    TODO: test listSongs method
+    //    TODO: test listSongs method
     public String listSongs() {
         String songList = "";
         if (song1 != null) {
@@ -52,8 +50,7 @@ public class Album {
     }
 
 
-
-//    Adds song to Album, Will try song1 first, then song2, song3...
+    //    Adds song to Album, Will try song1 first, then song2, song3...
 //    Return 1 if successful, return 0 if unsucessful
     public int addSong(String inputName, String inputArtist, int inputDuration, String inputGenre) {
         this.calculateTotalTime();
@@ -78,27 +75,57 @@ public class Album {
         }
     }
 
-//    Calculate total runtime of all songs
+    //    Calculate total runtime of all songs
     private void calculateTotalTime() {
         this.totalTime = 0;
         int time = 0;
         if (this.song1 != null) {
             time += this.song1.getDuration();
-        } if (this.song2 != null) {
+        }
+        if (this.song2 != null) {
             time += this.song2.getDuration();
-        } if (this.song3 != null) {
+        }
+        if (this.song3 != null) {
             time += this.song3.getDuration();
-        } if (this.song4 != null) {
+        }
+        if (this.song4 != null) {
             time += this.song4.getDuration();
         }
         this.totalTime = time;
     }
 
 
-//  Sets attribute 'isFull' to true if all songs have names
+    //  Sets attribute 'isFull' to true if all songs have names
     private void checkIsFull() {
         if (song1.getName() != null && song2.getName() != null && song3.getName() != null && song4.getName() != null) {
             this.isFull = true;
         }
+    }
+
+
+    //    Returns songs of certain genre
+    public String songsOfGenre(String inputgenre) {
+        String songOfGenreList = "";
+        if (this.song1 != null) {
+            if (this.song1.getGenre().equals(inputgenre)) {
+                songOfGenreList += this.song1.getName() + "\n";
+            }
+        }
+        if (this.song2 != null) {
+            if (this.song2.getGenre().equals(inputgenre)) {
+                songOfGenreList += this.song1.getName() + "\n";
+            }
+        }
+        if (this.song3 != null) {
+            if (this.song3.getGenre().equals(inputgenre)) {
+                songOfGenreList += this.song1.getName() + "\n";
+            }
+        }
+        if (this.song4 != null) {
+            if (this.song4.getGenre().equals(inputgenre)) {
+                songOfGenreList += this.song1.getName() + "\n";
+            }
+        }
+        return songOfGenreList;
     }
 }

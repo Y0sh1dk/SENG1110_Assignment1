@@ -9,7 +9,7 @@ public class SongCollection
 
 	public void run(){
 		Scanner scanner = new Scanner(System.in);
-		addSongtoAlbum("test");
+		addSongToAlbum("test");
 	}
 
 
@@ -26,7 +26,7 @@ public class SongCollection
 		}
 	}
 
-	private void addSongtoAlbum(String albumName) {
+	private void addSongToAlbum(String albumName) {
 		Scanner scanner = new Scanner(System.in);
 		if (album1 != null) {
 			if (album1.getName().equals(albumName)) {
@@ -86,7 +86,7 @@ public class SongCollection
 
 //	TODO: test listAlbums()
 	private void listAlbums() {
-		String albumList = null;
+		String albumList = "";
 		if (album1 != null) {
 			albumList += "Album1:" + album1.getName() + "\n";
 		}
@@ -104,9 +104,21 @@ public class SongCollection
 
 	}
 
-	private void listSongsOfGenre(String genre) {
 
+	private void listSongsOfGenre(String genre) {
+		String songsOfGenreList = "";
+		if (album1 != null) {
+			songsOfGenreList += album1.songsOfGenre(genre);
+		}
+		if (album2 != null) {
+			songsOfGenreList += album2.songsOfGenre(genre);
+		}
+		if (album3 != null) {
+			songsOfGenreList += album3.songsOfGenre(genre);
+		}
+		System.out.println(songsOfGenreList);
 	}
+
 
 	private void deleteAlbum(String albumName) {
 		if (album1 != null) {
@@ -122,7 +134,6 @@ public class SongCollection
 				album3 = null;
 			}
 		}
-
 	}
 
 	private void deleteSongFromAlbum(String songName, String AlbumName) {
