@@ -37,16 +37,16 @@ public class Album {
     public String listSongs() {
         String songList = "";
         if (song1 != null) {
-            songList += song1.getName() + "\n";
+            songList += "Song1:" + song1.getName() + "\n";
         }
         if (song2 != null) {
-            songList += song2.getName() + "\n";
+            songList += "Song2:" + song2.getName() + "\n";
         }
         if (song3 != null) {
-            songList += song3.getName() + "\n";
+            songList += "Song3:" + song3.getName() + "\n";
         }
         if (song4 != null) {
-            songList += song4.getName() + "\n";
+            songList += "Song4:" + song4.getName() + "\n";
         }
         return songList;
     }

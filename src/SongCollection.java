@@ -4,9 +4,17 @@ public class SongCollection
 {
 	private Album album1, album2, album3;
 
-	public void run(){
 
+
+
+	public void run(){
+		Scanner scanner = new Scanner(System.in);
+		addSongtoAlbum("test");
 	}
+
+
+
+
 
 	private void createAlbum(String albumName) {
 		if (album1 != null) {
@@ -19,21 +27,46 @@ public class SongCollection
 	}
 
 	private void addSongtoAlbum(String albumName) {
+		Scanner scanner = new Scanner(System.in);
 		if (album1 != null) {
 			if (album1.getName().equals(albumName)) {
-//				TODO: Add Song
+				System.out.println("Please enter song Name:");
+				String songName = scanner.nextLine();
+				System.out.println("Please enter song Artist:");
+				String songArtist = scanner.nextLine();
+				System.out.println("Please enter song Duration:");
+				int songDuration = scanner.nextInt();
+				System.out.println("Please enter song Genre:");
+				String songGenre = scanner.nextLine();
+				album1.addSong(songName, songArtist, songDuration, songGenre);
 			}
 		} else if (album2 != null) {
 			if (album2.getName().equals(albumName)) {
-//				TODO: Add Song
+				System.out.println("Please enter song Name:");
+				String songName = scanner.nextLine();
+				System.out.println("Please enter song Artist:");
+				String songArtist = scanner.nextLine();
+				System.out.println("Please enter song Duration:");
+				int songDuration = scanner.nextInt();
+				System.out.println("Please enter song Genre:");
+				String songGenre = scanner.nextLine();
+				album2.addSong(songName, songArtist, songDuration, songGenre);
 			}
 		} else if (album3 != null) {
 			if (album3.getName().equals(albumName)) {
-//				TODO: Add Song
+				System.out.println("Please enter song Name:");
+				String songName = scanner.nextLine();
+				System.out.println("Please enter song Artist:");
+				String songArtist = scanner.nextLine();
+				System.out.println("Please enter song Duration:");
+				int songDuration = scanner.nextInt();
+				System.out.println("Please enter song Genre:");
+				String songGenre = scanner.nextLine();
+				album3.addSong(songName, songArtist, songDuration, songGenre);
 			}
 		}
-
 	}
+
 
 	private void listSongsFromAlbum(String albumName) {
 		if (album1 != null) {
@@ -55,16 +88,17 @@ public class SongCollection
 	private void listAlbums() {
 		String albumList = null;
 		if (album1 != null) {
-			albumList += album1.getName() + "\n";
+			albumList += "Album1:" + album1.getName() + "\n";
 		}
 		if (album2 != null) {
-			albumList += album2.getName() + "\n";
+			albumList += "Album2:" + album2.getName() + "\n";
 		}
 		if (album3 != null) {
-			albumList += album3.getName() + "\n";
+			albumList += "Album3:" + album3.getName() + "\n";
 		}
 		System.out.println(albumList);
 	}
+
 
 	private void listSongsUnderTime(int maxtime) {
 
