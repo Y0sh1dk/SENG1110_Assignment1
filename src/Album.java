@@ -49,6 +49,10 @@ public class Album {
         return songList;
     }
 
+    public int deleteSong(String songName) {
+//        TODO: Delete song
+    }
+
 
     //    Adds song to Album, Will try song1 first, then song2, song3...
 //    Return 1 if successful, return 0 if unsucessful
@@ -108,22 +112,22 @@ public class Album {
         String songOfGenreList = "";
         if (this.song1 != null) {
             if (this.song1.getGenre().equals(inputgenre)) {
-                songOfGenreList += this.song1.getName() + "\n";
+                songOfGenreList += "Song1 Genre:" + this.song1.getName() + "\n";
             }
         }
         if (this.song2 != null) {
             if (this.song2.getGenre().equals(inputgenre)) {
-                songOfGenreList += this.song1.getName() + "\n";
+                songOfGenreList += "Song2 Genre:" + this.song1.getName() + "\n";
             }
         }
         if (this.song3 != null) {
             if (this.song3.getGenre().equals(inputgenre)) {
-                songOfGenreList += this.song1.getName() + "\n";
+                songOfGenreList += "Song3 Genre:" + this.song1.getName() + "\n";
             }
         }
         if (this.song4 != null) {
             if (this.song4.getGenre().equals(inputgenre)) {
-                songOfGenreList += this.song1.getName() + "\n";
+                songOfGenreList += "Song4 Genre:" + this.song1.getName() + "\n";
             }
         }
         return songOfGenreList;
