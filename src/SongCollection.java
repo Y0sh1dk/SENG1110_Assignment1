@@ -129,12 +129,18 @@ public class SongCollection
 	}
 
 
-	private void listSongsUnderTime(int maxtime) {
+	private void listSongsUnderTime(Scanner scanner) {
+		int time;
+		System.out.println("Please enter Time to find songs under");
+		time = scanner.nextInt();
 
 	}
 
 
-	private void listSongsOfGenre(String genre) {
+	private void listSongsOfGenre(Scanner scanner) {
+		String genre;
+		System.out.println("Please Enter Genre:");
+		genre = scanner.nextLine();
 		String songsOfGenreList = "";
 		if (album1 != null) {
 			songsOfGenreList += album1.songsOfGenre(genre);
@@ -149,7 +155,10 @@ public class SongCollection
 	}
 
 
-	private void deleteAlbum(String albumName) {
+	private void deleteAlbum(Scanner scanner) {
+		String albumName;
+		System.out.println("Please enter Album Name:");
+		albumName = scanner.nextLine();
 		if (album1 != null) {
 			if (album1.getName().equals(albumName)) {
 				album1 = null;
