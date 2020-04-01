@@ -117,13 +117,13 @@ public class SongCollection
 	private void listAlbums() {
 		String albumList = "";
 		if (album1 != null) {
-			albumList += "Album1:" + album1.getName() + "\n";
+			albumList += "Album1 Name:" + album1.getName() + "\n";
 		}
 		if (album2 != null) {
-			albumList += "Album2:" + album2.getName() + "\n";
+			albumList += "Album2 Name:" + album2.getName() + "\n";
 		}
 		if (album3 != null) {
-			albumList += "Album3:" + album3.getName() + "\n";
+			albumList += "Album3 Name:" + album3.getName() + "\n";
 		}
 		System.out.println(albumList);
 	}
@@ -167,6 +167,7 @@ public class SongCollection
 
 
 	private void deleteSongFromAlbum(Scanner scanner) {
+		int code = 0;
 		String albumName;
 		String songName;
 		System.out.println("Please Enter Album Name:");
@@ -175,18 +176,22 @@ public class SongCollection
 		songName = scanner.nextLine();
 		if (album1 != null) {
 			if (album1.getName().equals(albumName)) {
-				album1.deleteSong(songName);
+				code = album1.deleteSong(songName);
 			}
 		} else if (album2 != null) {
 			if (album2.getName().equals(albumName)) {
-				album2.deleteSong(songName);
+				code = album2.deleteSong(songName);
 			}
 		} else if (album3 != null) {
 			if (album3.getName().equals(albumName)) {
-				album3.deleteSong(songName);
+				code = album3.deleteSong(songName);
 			}
 		}
-
+		if (code == 1) {
+			System.out.println("Success!");
+		} else {
+			System.out.println("Fail!");
+		}
 	}
 
 

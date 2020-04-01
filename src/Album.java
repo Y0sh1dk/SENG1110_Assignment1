@@ -50,7 +50,23 @@ public class Album {
     }
 
     public int deleteSong(String songName) {
-//        TODO: Delete song
+        if (song1 != null) {
+            if (song1.getName().equals(songName)) {
+                song1 = null;
+                return 1;
+            }
+        } else if (song1 != null) {
+            if (song1.getName().equals(songName)) {
+                song1 = null;
+                return 1;
+            }
+        } else if (song1 != null) {
+            if (song1.getName().equals(songName)) {
+                song1 = null;
+                return 1;
+            }
+        }
+        return 0;
     }
 
 
