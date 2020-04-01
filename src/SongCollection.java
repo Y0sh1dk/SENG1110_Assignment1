@@ -39,7 +39,7 @@ public class SongCollection
 		String albumName;
 		int code = 0;
 		System.out.println("Please enter album name you would like to add a song too:");
-		albumName = scanner.nextLine();
+		albumName = scanner.nextLine().strip();
 		if (album1 != null) {
 			if (album1.getName().equals(albumName)) {
 				System.out.println("Please enter song Name:");
@@ -95,18 +95,18 @@ public class SongCollection
 	private void listSongsFromAlbum(Scanner scanner) {
 		String albumName;
 		System.out.println("Please Enter Album Name:");
-		albumName = scanner.nextLine();
+		albumName = scanner.nextLine().strip();
 		if (album1 != null) {
 			if (album1.getName().equals(albumName)) {
-				System.out.println(album1.listSongs());
+				System.out.println(album1.listAllSongs());
 			}
 		} else if (album2 != null) {
 			if (album2.getName().equals(albumName)) {
-				System.out.println(album2.listSongs());
+				System.out.println(album2.listAllSongs());
 			}
 		} else if (album3 != null) {
 			if (album3.getName().equals(albumName)) {
-				System.out.println(album3.listSongs());
+				System.out.println(album3.listAllSongs());
 			}
 		} else {
 			System.out.println("No such Album!");
@@ -131,16 +131,25 @@ public class SongCollection
 
 	private void listSongsUnderTime(Scanner scanner) {
 		int time;
+		String songList = "";
 		System.out.println("Please enter Time to find songs under");
 		time = scanner.nextInt();
-
+		if (album1 != null) {
+			songList += album1.listSongsUnderTime(time);
+		}
+		if (album2 != null) {
+			songList += album2.listSongsUnderTime(time);
+		}
+		if (album3 != null) {
+			songList += album2.listSongsUnderTime(time);
+		}
 	}
 
 
 	private void listSongsOfGenre(Scanner scanner) {
 		String genre;
 		System.out.println("Please Enter Genre:");
-		genre = scanner.nextLine();
+		genre = scanner.nextLine().strip();
 		String songsOfGenreList = "";
 		if (album1 != null) {
 			songsOfGenreList += album1.songsOfGenre(genre);
@@ -158,7 +167,7 @@ public class SongCollection
 	private void deleteAlbum(Scanner scanner) {
 		String albumName;
 		System.out.println("Please enter Album Name:");
-		albumName = scanner.nextLine();
+		albumName = scanner.nextLine().strip();
 		if (album1 != null) {
 			if (album1.getName().equals(albumName)) {
 				album1 = null;
@@ -180,9 +189,9 @@ public class SongCollection
 		String albumName;
 		String songName;
 		System.out.println("Please Enter Album Name:");
-		albumName = scanner.nextLine();
+		albumName = scanner.nextLine().strip();
 		System.out.println("Please enter Song Name");
-		songName = scanner.nextLine();
+		songName = scanner.nextLine().strip();
 		if (album1 != null) {
 			if (album1.getName().equals(albumName)) {
 				code = album1.deleteSong(songName);
@@ -206,8 +215,8 @@ public class SongCollection
 
 
 	public static void main(String[] args) {
-		SongCollection sg = new SongCollection();
-		sg.run();
+		SongCollection sc = new SongCollection();
+		sc.run();
 	}
 }
 

@@ -24,15 +24,15 @@ public class Album {
 
 
     public void setName(String inputName) {
-        name = inputName;
+        this.name = inputName;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     //    TODO: test listSongs method
-    public String listSongs() {
+    public String listAllSongs() {
         String songList = "";
         if (song1 != null) {
             songList += "Song1:" + song1.getName() + "\n";
@@ -49,20 +49,42 @@ public class Album {
         return songList;
     }
 
-    public int deleteSong(String songName) {
+
+    public String listSongsUnderTime(int timeMax) {
+        String songList = "";
         if (song1 != null) {
-            if (song1.getName().equals(songName)) {
-                song1 = null;
+            if (song1.getDuration() <= timeMax) {
+                songList += song1.getName();
+            }
+        }
+        if (song2 != null) {
+            if (song2.getDuration() <= timeMax) {
+                songList += song2.getName();
+            }
+        }
+        if (song3 != null) {
+            if (song3.getDuration() <= timeMax) {
+                songList += song3.getName();
+            }
+        }
+        return  songList;
+    }
+
+
+    public int deleteSong(String songName) {
+        if (this.song1 != null) {
+            if (this.song1.getName().equals(songName)) {
+                this.song1 = null;
                 return 1;
             }
-        } else if (song1 != null) {
-            if (song1.getName().equals(songName)) {
-                song1 = null;
+        } else if (this.song1 != null) {
+            if (this.song1.getName().equals(songName)) {
+                this.song1 = null;
                 return 1;
             }
-        } else if (song1 != null) {
-            if (song1.getName().equals(songName)) {
-                song1 = null;
+        } else if (this.song1 != null) {
+            if (this.song1.getName().equals(songName)) {
+                this.song1 = null;
                 return 1;
             }
         }
@@ -117,7 +139,7 @@ public class Album {
 
     //  Sets attribute 'isFull' to true if all songs have names
     private void checkIsFull() {
-        if (song1.getName() != null && song2.getName() != null && song3.getName() != null && song4.getName() != null) {
+        if (this.song1.getName() != null && this.song2.getName() != null && this.song3.getName() != null && this.song4.getName() != null) {
             this.isFull = true;
         }
     }
