@@ -1,7 +1,7 @@
 public class Album {
 
     private String name;
-    private Song song1, song2, song3, song4;
+    private Song song1 = null , song2 = null, song3 = null, song4 = null;
     private boolean isFull = false;
     private int totalTime = 0;
     private final int MAX_TIME = 720; //12 minutes

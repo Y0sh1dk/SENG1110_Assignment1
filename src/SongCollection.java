@@ -1,19 +1,61 @@
 import java.util.*;
 
-
-
 //TODO: Make not case sensitive, strip white space
-
 
 
 public class SongCollection
 {
-	private Album album1, album2, album3;
+	private Album album1 = null, album2 = null, album3 = null;
 
 
-	public void run(){
-		Scanner scanner = new Scanner(System.in);
-//		TODO: Create user interface
+	public void run() {
+		while (true) {
+			Scanner scanner = new Scanner(System.in);
+			int option;
+			System.out.println("1) List albums");
+			System.out.println("2) Create album");
+			System.out.println("3) Delete album");
+			System.out.println("4) List songs from album");
+			System.out.println("5) Add song to album");
+			System.out.println("6) Delete song from album");
+			System.out.println("7) List all songs whose duration is under a certain time");
+			System.out.println("8) List all songs of a specific genre");
+			System.out.println("9) Exit program");
+
+			System.out.println("Please Select a Option:");
+			option = scanner.nextInt();
+
+			switch (option) {
+				case 1:
+					System.out.println("You selected option 1");
+					break;
+				case 2:
+					System.out.println("You selected option 2");
+					break;
+				case 3:
+					System.out.println("You selected option 3");
+					break;
+				case 4:
+					System.out.println("You selected option 4");
+					break;
+				case 5:
+					System.out.println("You selected option 5");
+					break;
+				case 6:
+					System.out.println("You selected option 6");
+					break;
+				case 7:
+					System.out.println("You selected option 7");
+					break;
+				case 8:
+					System.out.println("You selected option 8");
+					break;
+				case 9:
+					System.out.println("Exiting Program...");
+					System.exit(0);
+					break;
+			}
+		}
 	}
 
 

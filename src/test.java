@@ -29,6 +29,6 @@ public class test {
         } else {
             System.out.println("fail");
         }
-        System.out.println(album1.listSongs());
+        System.out.println(album1.listAllSongs());
     }
 }
