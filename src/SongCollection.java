@@ -12,7 +12,7 @@ public class SongCollection
 		while (true) {
 			Scanner scanner = new Scanner(System.in);
 			int option;
-			System.out.println("1) List albums");
+			System.out.println("\n1) List albums");
 			System.out.println("2) Create album");
 			System.out.println("3) Delete album");
 			System.out.println("4) List songs from album");
@@ -20,8 +20,7 @@ public class SongCollection
 			System.out.println("6) Delete song from album");
 			System.out.println("7) List all songs whose duration is under a certain time");
 			System.out.println("8) List all songs of a specific genre");
-			System.out.println("9) Exit program");
-
+			System.out.println("9) Exit program\n");
 			System.out.println("Please Select a Option:");
 			option = scanner.nextInt();
 

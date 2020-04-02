@@ -77,14 +77,14 @@ public class Album {
                 this.song1 = null;
                 return 1;
             }
-        } else if (this.song1 != null) {
-            if (this.song1.getName().equals(songName)) {
-                this.song1 = null;
+        } else if (this.song2 != null) {
+            if (this.song2.getName().equals(songName)) {
+                this.song2 = null;
                 return 1;
             }
-        } else if (this.song1 != null) {
-            if (this.song1.getName().equals(songName)) {
-                this.song1 = null;
+        } else if (this.song3 != null) {
+            if (this.song3.getName().equals(songName)) {
+                this.song3 = null;
                 return 1;
             }
         }
