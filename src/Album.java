@@ -77,12 +77,12 @@ public class Album {
                 this.song1 = null;
                 return 1;
             }
-        } else if (this.song2 != null) {
+        } if (this.song2 != null) {
             if (this.song2.getName().equals(songName)) {
                 this.song2 = null;
                 return 1;
             }
-        } else if (this.song3 != null) {
+        } if (this.song3 != null) {
             if (this.song3.getName().equals(songName)) {
                 this.song3 = null;
                 return 1;
@@ -95,25 +95,29 @@ public class Album {
     //    Adds song to Album, Will try song1 first, then song2, song3...
 //    Return 1 if successful, return 0 if unsucessful
     public int addSong(String inputName, String inputArtist, int inputDuration, String inputGenre) {
-        this.calculateTotalTime();
-        if (this.totalTime + inputDuration <= this.MAX_TIME) {
-            if (this.song1 == null) {
-                this.song1 = new Song(inputName, inputArtist, inputDuration, inputGenre);
-                return 1;
-            } else if (this.song2 == null) {
-                this.song2 = new Song(inputName, inputArtist, inputDuration, inputGenre);
-                return 1;
-            } else if (this.song3 == null) {
-                this.song3 = new Song(inputName, inputArtist, inputDuration, inputGenre);
-                return 1;
-            } else if (this.song4 == null) {
-                this.song4 = new Song(inputName, inputArtist, inputDuration, inputGenre);
-                return 1;
+        if (this.doesSongExist(inputName, inputArtist, inputDuration)) {
+            this.calculateTotalTime();
+            if (this.totalTime + inputDuration <= this.MAX_TIME) {
+                if (this.song1 == null) {
+                    this.song1 = new Song(inputName, inputArtist, inputDuration, inputGenre);
+                    return 1;
+                } else if (this.song2 == null) {
+                    this.song2 = new Song(inputName, inputArtist, inputDuration, inputGenre);
+                    return 1;
+                } else if (this.song3 == null) {
+                    this.song3 = new Song(inputName, inputArtist, inputDuration, inputGenre);
+                    return 1;
+                } else if (this.song4 == null) {
+                    this.song4 = new Song(inputName, inputArtist, inputDuration, inputGenre);
+                    return 1;
+                } else {
+                    return 0;
+                }
             } else {
-                return 0;
+                return 2;
             }
         } else {
-            return 0;
+            return 3;
         }
     }
 
@@ -142,6 +146,28 @@ public class Album {
         if (this.song1.getName() != null && this.song2.getName() != null && this.song3.getName() != null && this.song4.getName() != null) {
             this.isFull = true;
         }
+    }
+
+//  Returns true of song of same name, artist and duration exists, else returns false
+    private boolean doesSongExist(String inputName, String inputArtist, int inputDuration) {
+        if (this.song1 != null) {
+            if (this.song1.getName().equals(inputName) && this.song1.getArtist().equals(inputArtist) && this.song1.getDuration() == inputDuration) {
+                return true;
+            }
+        } if (this.song2 != null) {
+            if (this.song2.getName().equals(inputName) && this.song2.getArtist().equals(inputArtist) && this.song2.getDuration() == inputDuration) {
+                return true;
+            }
+        } if (this.song3 != null) {
+            if (this.song3.getName().equals(inputName) && this.song3.getArtist().equals(inputArtist) && this.song3.getDuration() == inputDuration) {
+                return true;
+            }
+        } if (this.song4 != null) {
+            if (this.song4.getName().equals(inputName) && this.song4.getArtist().equals(inputArtist) && this.song4.getDuration() == inputDuration) {
+                return true;
+            }
+        }
+        return false;
     }
 
 
