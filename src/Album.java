@@ -35,16 +35,16 @@ public class Album {
     public String listAllSongs() {
         String songList = "";
         if (song1 != null) {
-            songList += "Song1:" + song1.getName() + "\n";
+            songList += "Song1: " + song1.getName() + "\n";
         }
         if (song2 != null) {
-            songList += "Song2:" + song2.getName() + "\n";
+            songList += "Song2: " + song2.getName() + "\n";
         }
         if (song3 != null) {
-            songList += "Song3:" + song3.getName() + "\n";
+            songList += "Song3: " + song3.getName() + "\n";
         }
         if (song4 != null) {
-            songList += "Song4:" + song4.getName() + "\n";
+            songList += "Song4: " + song4.getName() + "\n";
         }
         return songList;
     }
@@ -95,7 +95,7 @@ public class Album {
     //    Adds song to Album, Will try song1 first, then song2, song3...
 //    Return 1 if successful, return 0 if unsucessful
     public int addSong(String inputName, String inputArtist, int inputDuration, String inputGenre) {
-        if (this.doesSongExist(inputName, inputArtist, inputDuration)) {
+        if (!this.doesSongExist(inputName, inputArtist, inputDuration)) { // if song doesnt exist, continue
             this.calculateTotalTime();
             if (this.totalTime + inputDuration <= this.MAX_TIME) {
                 if (this.song1 == null) {
@@ -180,22 +180,22 @@ public class Album {
         String songOfGenreList = "";
         if (this.song1 != null) {
             if (this.song1.getGenre().equals(inputgenre)) {
-                songOfGenreList += "Song1 Genre:" + this.song1.getName() + "\n";
+                songOfGenreList += "Song1: " + this.song1.getArtist() + " - " + this.song1.getName() + "\n";
             }
         }
         if (this.song2 != null) {
             if (this.song2.getGenre().equals(inputgenre)) {
-                songOfGenreList += "Song2 Genre:" + this.song1.getName() + "\n";
+                songOfGenreList += "Song2: " + this.song2.getArtist() + " - " + this.song2.getName() + "\n";
             }
         }
         if (this.song3 != null) {
             if (this.song3.getGenre().equals(inputgenre)) {
-                songOfGenreList += "Song3 Genre:" + this.song1.getName() + "\n";
+                songOfGenreList += "Song3: " + this.song3.getArtist() + " - " + this.song3.getName() + "\n";
             }
         }
         if (this.song4 != null) {
             if (this.song4.getGenre().equals(inputgenre)) {
-                songOfGenreList += "Song4 Genre:" + this.song1.getName() + "\n";
+                songOfGenreList += "Song4: " + this.song3.getArtist() + " - " + this.song4.getName() + "\n";
             }
         }
         return songOfGenreList;
