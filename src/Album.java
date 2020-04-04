@@ -100,15 +100,19 @@ public class Album {
             if (this.totalTime + inputDuration <= this.MAX_TIME) {
                 if (this.song1 == null) {
                     this.song1 = new Song(inputName, inputArtist, inputDuration, inputGenre);
+                    this.calculateTotalTime();
                     return 1;
                 } else if (this.song2 == null) {
                     this.song2 = new Song(inputName, inputArtist, inputDuration, inputGenre);
+                    this.calculateTotalTime();
                     return 1;
                 } else if (this.song3 == null) {
                     this.song3 = new Song(inputName, inputArtist, inputDuration, inputGenre);
+                    this.calculateTotalTime();
                     return 1;
                 } else if (this.song4 == null) {
                     this.song4 = new Song(inputName, inputArtist, inputDuration, inputGenre);
+                    this.calculateTotalTime();
                     return 1;
                 } else {
                     return 0;

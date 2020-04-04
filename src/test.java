@@ -1,34 +1,37 @@
+import java.util.Scanner;
+
 public class test {
+
+
+    public static String getValidGenre(Scanner scanner) {
+        boolean valid = false;
+        String genre = "";
+        while (!valid) {
+            System.out.println("Please enter song Genre:");
+            genre = scanner.nextLine();
+            if (genre.equals("rock") || genre.equals("pop") || genre.equals("hip-hop") || genre.equals("bossa nova")) {
+                valid = true;
+            } else {
+                System.out.println("Invalid Genre");
+            }
+        }
+        return genre;
+    }
+
+
     public static void main(String[] args) {
         Album album1, album2, album3;
         album1 = new Album();
         int a;
 
+        Scanner scanner = new Scanner(System.in);
 
-        a = album1.addSong("testsongname1","testartistname1",600,"Rock");
-        if ( a == 1) {
-            System.out.println("Sucess");
-        } else {
-            System.out.println("fail");
-        }
-        a = album1.addSong("testsongname2","testartistname2",50,"Rock2");
-        if ( a == 1) {
-            System.out.println("Sucess");
-        } else {
-            System.out.println("fail");
-        }
-        a = album1.addSong("testsongname3","testartistname3",50,"Rock2");
-        if ( a == 1) {
-            System.out.println("Sucess");
-        } else {
-            System.out.println("fail");
-        }
-        a = album1.addSong("testsongname4","testartistname4",50,"Rock2");
-        if ( a == 1) {
-            System.out.println("Sucess");
-        } else {
-            System.out.println("fail");
-        }
-        System.out.println(album1.listAllSongs());
+        String str = getValidGenre(scanner);
+        System.out.println(str);
+
     }
+
+
+
+
 }

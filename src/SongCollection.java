@@ -89,8 +89,7 @@ public class SongCollection
 				String songArtist = scanner.nextLine();
 				System.out.println("Please enter song Duration:");
 				int songDuration = scanner.nextInt();
-				System.out.println("Please enter song Genre:");
-				String songGenre = scanner.nextLine();
+				String songGenre = getValidGenre(scanner);
 				songcode = album1.addSong(songName, songArtist, songDuration, songGenre);
 				albumcode = 1;
 			}
@@ -102,8 +101,7 @@ public class SongCollection
 				String songArtist = scanner.nextLine();
 				System.out.println("Please enter song Duration:");
 				int songDuration = scanner.nextInt();
-				System.out.println("Please enter song Genre:");
-				String songGenre = scanner.nextLine();
+				String songGenre = getValidGenre(scanner);
 				songcode = album2.addSong(songName, songArtist, songDuration, songGenre);
 				albumcode = 1;
 			}
@@ -115,8 +113,7 @@ public class SongCollection
 				String songArtist = scanner.nextLine();
 				System.out.println("Please enter song Duration:");
 				int songDuration = scanner.nextInt();
-				System.out.println("Please enter song Genre:");
-				String songGenre = scanner.nextLine();
+				String songGenre = getValidGenre(scanner);
 				songcode = album3.addSong(songName, songArtist, songDuration, songGenre);
 				albumcode = 1;
 			}
@@ -132,6 +129,22 @@ public class SongCollection
 		} else if (songcode == 3) {
 			System.out.println("Song Already exists in album");
 		}
+	}
+
+
+	private String getValidGenre(Scanner scanner) {
+		boolean valid = false;
+		String genre = "";
+		while (!valid) {
+			System.out.println("Please enter song Genre:");
+			genre = scanner.nextLine();
+			if (genre.equals("rock") || genre.equals("pop") || genre.equals("hip-hop") || genre.equals("bossa nova")) {
+				valid = true;
+			} else {
+				System.out.println("Invalid Genre");
+			}
+		}
+		return genre;
 	}
 
 
