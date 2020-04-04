@@ -213,7 +213,7 @@ public class SongCollection
 			songList += album2.listSongsUnderTime(time);
 		}
 		if (album3 != null) {
-			songList += album2.listSongsUnderTime(time);
+			songList += album3.listSongsUnderTime(time);
 		}
 		System.out.println(songList);
 		returnToMenu(scanner);
