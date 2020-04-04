@@ -199,6 +199,7 @@ public class SongCollection
 		if (album3 != null) {
 			songList += album2.listSongsUnderTime(time);
 		}
+		System.out.println(songList);
 	}
 
 
@@ -261,12 +262,12 @@ public class SongCollection
 				albumcode = 1;
 				songcode = album1.deleteSong(songName);
 			}
-		} else if (album2 != null) {
+		} if (album2 != null) {
 			if (album2.getName().equals(albumName)) {
 				albumcode = 1;
 				songcode = album2.deleteSong(songName);
 			}
-		} else if (album3 != null) {
+		} if (album3 != null) {
 			if (album3.getName().equals(albumName)) {
 				albumcode = 1;
 				songcode = album3.deleteSong(songName);
