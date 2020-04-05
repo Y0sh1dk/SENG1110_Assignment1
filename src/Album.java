@@ -73,17 +73,17 @@ public class Album {
 
     public int deleteSong(String songName) {
         if (this.song1 != null) {
-            if (this.song1.getName().equals(songName)) {
+            if (this.song1.getName().equalsIgnoreCase(songName)) {
                 this.song1 = null;
                 return 1;
             }
         } if (this.song2 != null) {
-            if (this.song2.getName().equals(songName)) {
+            if (this.song2.getName().equalsIgnoreCase(songName)) {
                 this.song2 = null;
                 return 1;
             }
         } if (this.song3 != null) {
-            if (this.song3.getName().equals(songName)) {
+            if (this.song3.getName().equalsIgnoreCase(songName)) {
                 this.song3 = null;
                 return 1;
             }
@@ -147,19 +147,19 @@ public class Album {
 //  Returns true of song of same name, artist and duration exists, else returns false
     private boolean doesSongExist(String inputName, String inputArtist, int inputDuration) {
         if (this.song1 != null) {
-            if (this.song1.getName().equals(inputName) && this.song1.getArtist().equals(inputArtist) && this.song1.getDuration() == inputDuration) {
+            if (this.song1.getName().equalsIgnoreCase(inputName) && this.song1.getArtist().equalsIgnoreCase(inputArtist) && this.song1.getDuration() == inputDuration) {
                 return true;
             }
         } if (this.song2 != null) {
-            if (this.song2.getName().equals(inputName) && this.song2.getArtist().equals(inputArtist) && this.song2.getDuration() == inputDuration) {
+            if (this.song2.getName().equalsIgnoreCase(inputName) && this.song2.getArtist().equalsIgnoreCase(inputArtist) && this.song2.getDuration() == inputDuration) {
                 return true;
             }
         } if (this.song3 != null) {
-            if (this.song3.getName().equals(inputName) && this.song3.getArtist().equals(inputArtist) && this.song3.getDuration() == inputDuration) {
+            if (this.song3.getName().equalsIgnoreCase(inputName) && this.song3.getArtist().equalsIgnoreCase(inputArtist) && this.song3.getDuration() == inputDuration) {
                 return true;
             }
         } if (this.song4 != null) {
-            if (this.song4.getName().equals(inputName) && this.song4.getArtist().equals(inputArtist) && this.song4.getDuration() == inputDuration) {
+            if (this.song4.getName().equalsIgnoreCase(inputName) && this.song4.getArtist().equalsIgnoreCase(inputArtist) && this.song4.getDuration() == inputDuration) {
                 return true;
             }
         }
@@ -171,22 +171,22 @@ public class Album {
     public String songsOfGenre(String inputgenre) {
         String songOfGenreList = "";
         if (this.song1 != null) {
-            if (this.song1.getGenre().equals(inputgenre)) {
+            if (this.song1.getGenre().equalsIgnoreCase(inputgenre)) {
                 songOfGenreList += "Song1: " + this.song1.getArtist() + " - " + this.song1.getName() + "\n";
             }
         }
         if (this.song2 != null) {
-            if (this.song2.getGenre().equals(inputgenre)) {
+            if (this.song2.getGenre().equalsIgnoreCase(inputgenre)) {
                 songOfGenreList += "Song2: " + this.song2.getArtist() + " - " + this.song2.getName() + "\n";
             }
         }
         if (this.song3 != null) {
-            if (this.song3.getGenre().equals(inputgenre)) {
+            if (this.song3.getGenre().equalsIgnoreCase(inputgenre)) {
                 songOfGenreList += "Song3: " + this.song3.getArtist() + " - " + this.song3.getName() + "\n";
             }
         }
         if (this.song4 != null) {
-            if (this.song4.getGenre().equals(inputgenre)) {
+            if (this.song4.getGenre().equalsIgnoreCase(inputgenre)) {
                 songOfGenreList += "Song4: " + this.song3.getArtist() + " - " + this.song4.getName() + "\n";
             }
         }

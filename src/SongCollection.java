@@ -107,17 +107,17 @@ public class SongCollection
 		scanner.nextLine(); // to throw out '/n'
 		albumName = scanner.nextLine().strip();
 		if (album1 != null) {
-			if (album1.getName().equals(albumName)) {
+			if (album1.getName().equalsIgnoreCase(albumName)) {
 				album1 = null;
 				albumcode = 1;
 			}
 		} if (album2 != null) {
-			if (album2.getName().equals(albumName)) {
+			if (album2.getName().equalsIgnoreCase(albumName)) {
 				album2 = null;
 				albumcode = 1;
 			}
 		} if (album3 != null) {
-			if (album3.getName().equals(albumName)) {
+			if (album3.getName().equalsIgnoreCase(albumName)) {
 				album3 = null;
 				albumcode = 1;
 			}
@@ -136,15 +136,15 @@ public class SongCollection
 		scanner.nextLine(); // to throw out '/n'
 		albumName = scanner.nextLine().strip();
 		if (album1 != null) {
-			if (album1.getName().equals(albumName)) {
+			if (album1.getName().equalsIgnoreCase(albumName)) {
 				System.out.println("Album1:\n" + album1.listAllSongs());
 			}
 		} if (album2 != null) {
-			if (album2.getName().equals(albumName)) {
+			if (album2.getName().equalsIgnoreCase(albumName)) {
 				System.out.println("Album2:\n" + album2.listAllSongs());
 			}
 		} if (album3 != null) {
-			if (album3.getName().equals(albumName)) {
+			if (album3.getName().equalsIgnoreCase(albumName)) {
 				System.out.println("Album3:\n" + album3.listAllSongs());
 			}
 		} else {
@@ -161,7 +161,7 @@ public class SongCollection
 		scanner.nextLine(); // to throw out '/n'
 		albumName = scanner.nextLine().strip();
 		if (album1 != null) {
-			if (album1.getName().equals(albumName)) {
+			if (album1.getName().equalsIgnoreCase(albumName)) {
 				System.out.println("Please enter song Name:");
 				String songName = scanner.nextLine();
 				System.out.println("Please enter song Artist:");
@@ -173,7 +173,7 @@ public class SongCollection
 				albumcode = 1;
 			}
 		} if (album2 != null) {
-			if (album2.getName().equals(albumName)) {
+			if (album2.getName().equalsIgnoreCase(albumName)) {
 				System.out.println("Please enter song Name:");
 				String songName = scanner.nextLine();
 				System.out.println("Please enter song Artist:");
@@ -185,7 +185,7 @@ public class SongCollection
 				albumcode = 1;
 			}
 		} if (album3 != null) {
-			if (album3.getName().equals(albumName)) {
+			if (album3.getName().equalsIgnoreCase(albumName)) {
 				System.out.println("Please enter song Name:");
 				String songName = scanner.nextLine();
 				System.out.println("Please enter song Artist:");
@@ -223,17 +223,17 @@ public class SongCollection
 		System.out.println("Please enter Song Name");
 		songName = scanner.nextLine().strip();
 		if (album1 != null) {
-			if (album1.getName().equals(albumName)) {
+			if (album1.getName().equalsIgnoreCase(albumName)) {
 				albumcode = 1;
 				songcode = album1.deleteSong(songName);
 			}
 		} if (album2 != null) {
-			if (album2.getName().equals(albumName)) {
+			if (album2.getName().equalsIgnoreCase(albumName)) {
 				albumcode = 1;
 				songcode = album2.deleteSong(songName);
 			}
 		} if (album3 != null) {
-			if (album3.getName().equals(albumName)) {
+			if (album3.getName().equalsIgnoreCase(albumName)) {
 				albumcode = 1;
 				songcode = album3.deleteSong(songName);
 			}
@@ -302,7 +302,7 @@ public class SongCollection
 			System.out.println("Please enter song Genre:");
 			scanner.nextLine(); // to throw out '/n'
 			genre = scanner.nextLine();
-			if (genre.equals("rock") || genre.equals("pop") || genre.equals("hip-hop") || genre.equals("bossa nova")) {
+			if (genre.equalsIgnoreCase("rock") || genre.equalsIgnoreCase("pop") || genre.equalsIgnoreCase("hip-hop") || genre.equalsIgnoreCase("bossa nova")) {
 				valid = true;
 			} else {
 				System.out.println("Invalid Genre");
