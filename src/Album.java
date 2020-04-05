@@ -144,14 +144,6 @@ public class Album {
         this.totalTime = time;
     }
 
-
-    //  Sets attribute 'isFull' to true if all songs have names
-    private void checkIsFull() {
-        if (this.song1.getName() != null && this.song2.getName() != null && this.song3.getName() != null && this.song4.getName() != null) {
-            this.isFull = true;
-        }
-    }
-
 //  Returns true of song of same name, artist and duration exists, else returns false
     private boolean doesSongExist(String inputName, String inputArtist, int inputDuration) {
         if (this.song1 != null) {

@@ -8,7 +8,7 @@ public class SongCollection
 	private Album album1 = null, album2 = null, album3 = null;
 
 
-	public void run() {
+	private void run() {
 		while (true) {
 			Scanner scanner = new Scanner(System.in);
 			int option;
@@ -58,6 +58,27 @@ public class SongCollection
 	}
 
 
+	private void listAlbums(Scanner scanner) {
+		scanner.nextLine(); // to throw out '/n'
+		String albumList = "";
+		if (album1 != null) {
+			albumList += "Album1 Name: " + album1.getName() + "\n";
+		}
+		if (album2 != null) {
+			albumList += "Album2 Name: " + album2.getName() + "\n";
+		}
+		if (album3 != null) {
+			albumList += "Album3 Name: " + album3.getName() + "\n";
+		}
+		if (albumList.equals("")) {
+			System.out.println("No albums have been created yet!");
+		} else {
+			System.out.println(albumList);
+		}
+		returnToMenu(scanner);
+	}
+
+
 	private void createAlbum(Scanner scanner) {
 		String albumName;
 		System.out.println("Please enter a Album name:");
@@ -74,6 +95,60 @@ public class SongCollection
 			System.out.println("Success!");
 		} else {
 			System.out.println("Fail!");
+		}
+		returnToMenu(scanner);
+	}
+
+
+	private void deleteAlbum(Scanner scanner) {
+		int albumcode = 0;
+		String albumName;
+		System.out.println("Please enter album name to delete:");
+		scanner.nextLine(); // to throw out '/n'
+		albumName = scanner.nextLine().strip();
+		if (album1 != null) {
+			if (album1.getName().equals(albumName)) {
+				album1 = null;
+				albumcode = 1;
+			}
+		} if (album2 != null) {
+			if (album2.getName().equals(albumName)) {
+				album2 = null;
+				albumcode = 1;
+			}
+		} if (album3 != null) {
+			if (album3.getName().equals(albumName)) {
+				album3 = null;
+				albumcode = 1;
+			}
+		} if (albumcode == 1) {
+			System.out.println("Success!");
+		} else {
+			System.out.println("No album with that name exists");
+		}
+		returnToMenu(scanner);
+	}
+
+
+	private void listSongsFromAlbum(Scanner scanner) {
+		String albumName;
+		System.out.println("Please Enter Album Name:");
+		scanner.nextLine(); // to throw out '/n'
+		albumName = scanner.nextLine().strip();
+		if (album1 != null) {
+			if (album1.getName().equals(albumName)) {
+				System.out.println("Album1:\n" + album1.listAllSongs());
+			}
+		} if (album2 != null) {
+			if (album2.getName().equals(albumName)) {
+				System.out.println("Album2:\n" + album2.listAllSongs());
+			}
+		} if (album3 != null) {
+			if (album3.getName().equals(albumName)) {
+				System.out.println("Album3:\n" + album3.listAllSongs());
+			}
+		} else {
+			System.out.println("No such Album!");
 		}
 		returnToMenu(scanner);
 	}
@@ -137,63 +212,38 @@ public class SongCollection
 	}
 
 
-	private String getValidGenre(Scanner scanner) {
-		boolean valid = false;
-		String genre = "";
-		while (!valid) {
-			System.out.println("Please enter song Genre:");
-			scanner.nextLine(); // to throw out '/n'
-			genre = scanner.nextLine();
-			if (genre.equals("rock") || genre.equals("pop") || genre.equals("hip-hop") || genre.equals("bossa nova")) {
-				valid = true;
-			} else {
-				System.out.println("Invalid Genre");
-			}
-		}
-		return genre;
-	}
-
-
-	private void listSongsFromAlbum(Scanner scanner) {
+	private void deleteSongFromAlbum(Scanner scanner) {
+		int albumcode = 0, songcode = 0;
 		String albumName;
-		System.out.println("Please Enter Album Name:");
+		String songName;
 		scanner.nextLine(); // to throw out '/n'
+		System.out.println("Please Enter Album Name:");
 		albumName = scanner.nextLine().strip();
+		scanner.nextLine(); // to throw out '/n'
+		System.out.println("Please enter Song Name");
+		songName = scanner.nextLine().strip();
 		if (album1 != null) {
 			if (album1.getName().equals(albumName)) {
-				System.out.println("Album1:\n" + album1.listAllSongs());
+				albumcode = 1;
+				songcode = album1.deleteSong(songName);
 			}
 		} if (album2 != null) {
 			if (album2.getName().equals(albumName)) {
-				System.out.println("Album2:\n" + album2.listAllSongs());
+				albumcode = 1;
+				songcode = album2.deleteSong(songName);
 			}
 		} if (album3 != null) {
 			if (album3.getName().equals(albumName)) {
-				System.out.println("Album3:\n" + album3.listAllSongs());
+				albumcode = 1;
+				songcode = album3.deleteSong(songName);
 			}
-		} else {
-			System.out.println("No such Album!");
 		}
-		returnToMenu(scanner);
-	}
-
-
-	private void listAlbums(Scanner scanner) {
-		scanner.nextLine(); // to throw out '/n'
-		String albumList = "";
-		if (album1 != null) {
-			albumList += "Album1 Name: " + album1.getName() + "\n";
-		}
-		if (album2 != null) {
-			albumList += "Album2 Name: " + album2.getName() + "\n";
-		}
-		if (album3 != null) {
-			albumList += "Album3 Name: " + album3.getName() + "\n";
-		}
-		if (albumList.equals("")) {
-			System.out.println("No albums have been created yet!");
-		} else {
-			System.out.println(albumList);
+		if (albumcode == 1 && songcode == 1) {
+			System.out.println("Success!");
+		} else if (albumcode == 1 && songcode == 0) {
+			System.out.println("Album Exists, but song does not exists in album");
+		} else if (albumcode == 0) {
+			System.out.println("Album does not exist");
 		}
 		returnToMenu(scanner);
 	}
@@ -245,78 +295,27 @@ public class SongCollection
 	}
 
 
-	private void deleteAlbum(Scanner scanner) {
-		int albumcode = 0;
-		String albumName;
-		System.out.println("Please enter album name to delete:");
-		scanner.nextLine(); // to throw out '/n'
-		albumName = scanner.nextLine().strip();
-		if (album1 != null) {
-			if (album1.getName().equals(albumName)) {
-				album1 = null;
-				albumcode = 1;
+	private String getValidGenre(Scanner scanner) {
+		boolean valid = false;
+		String genre = "";
+		while (!valid) {
+			System.out.println("Please enter song Genre:");
+			scanner.nextLine(); // to throw out '/n'
+			genre = scanner.nextLine();
+			if (genre.equals("rock") || genre.equals("pop") || genre.equals("hip-hop") || genre.equals("bossa nova")) {
+				valid = true;
+			} else {
+				System.out.println("Invalid Genre");
 			}
-		} if (album2 != null) {
-			if (album2.getName().equals(albumName)) {
-				album2 = null;
-				albumcode = 1;
-			}
-		} if (album3 != null) {
-			if (album3.getName().equals(albumName)) {
-				album3 = null;
-				albumcode = 1;
-			}
-		} if (albumcode == 1) {
-			System.out.println("Success!");
-		} else {
-			System.out.println("No album with that name exists");
 		}
-		returnToMenu(scanner);
+		return genre;
 	}
 
-
-	private void deleteSongFromAlbum(Scanner scanner) {
-		int albumcode = 0, songcode = 0;
-		String albumName;
-		String songName;
-		scanner.nextLine(); // to throw out '/n'
-		System.out.println("Please Enter Album Name:");
-		albumName = scanner.nextLine().strip();
-		scanner.nextLine(); // to throw out '/n'
-		System.out.println("Please enter Song Name");
-		songName = scanner.nextLine().strip();
-		if (album1 != null) {
-			if (album1.getName().equals(albumName)) {
-				albumcode = 1;
-				songcode = album1.deleteSong(songName);
-			}
-		} if (album2 != null) {
-			if (album2.getName().equals(albumName)) {
-				albumcode = 1;
-				songcode = album2.deleteSong(songName);
-			}
-		} if (album3 != null) {
-			if (album3.getName().equals(albumName)) {
-				albumcode = 1;
-				songcode = album3.deleteSong(songName);
-			}
-		}
-		if (albumcode == 1 && songcode == 1) {
-			System.out.println("Success!");
-		} else if (albumcode == 1 && songcode == 0) {
-			System.out.println("Album Exists, but song does not exists in album");
-		} else if (albumcode == 0) {
-			System.out.println("Album does not exist");
-		}
-		returnToMenu(scanner);
-	}
 
 	private void returnToMenu(Scanner scanner) {
 		System.out.println("\nPress \"ENTER\" Key to return to menu");
 		scanner.nextLine();
 	}
-
-
 
 
 	public static void main(String[] args) {
