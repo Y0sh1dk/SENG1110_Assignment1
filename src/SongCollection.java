@@ -104,24 +104,6 @@ public class SongCollection
 	}
 
 
-	private boolean doesAlbumExist(String albumName) {
-		if (album1 != null) {
-			if (album1.getName().equalsIgnoreCase(albumName)) {
-				return true;
-			}
-		} if (album2 != null) {
-			if (album2.getName().equalsIgnoreCase(albumName)) {
-				return true;
-			}
-		} if (album3 != null) {
-			if (album3.getName().equalsIgnoreCase(albumName)) {
-				return true;
-			}
-		}
-		return false;
-	}
-
-
 	private void deleteAlbum(Scanner scanner) {
 		int albumcode = 0;
 		String albumName;
@@ -331,6 +313,24 @@ public class SongCollection
 			}
 		}
 		return genre;
+	}
+
+
+	private boolean doesAlbumExist(String albumName) {
+		if (album1 != null) {
+			if (album1.getName().equalsIgnoreCase(albumName)) {
+				return true;
+			}
+		} if (album2 != null) {
+			if (album2.getName().equalsIgnoreCase(albumName)) {
+				return true;
+			}
+		} if (album3 != null) {
+			if (album3.getName().equalsIgnoreCase(albumName)) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 
