@@ -84,19 +84,41 @@ public class SongCollection
 		System.out.println("Please enter a Album name:");
 		scanner.nextLine();
 		albumName = scanner.nextLine().strip();
-		if (album1 == null) {
-			album1 = new Album(albumName);
-			System.out.println("Success!");
-		} else if (album2 == null) {
-			album2 = new Album(albumName);
-			System.out.println("Success!");
-		} else if (album3 == null) {
-			album3 = new Album(albumName);
-			System.out.println("Success!");
+		if (!doesAlbumExist(albumName)) {
+			if (album1 == null) {
+				album1 = new Album(albumName);
+				System.out.println("Success!");
+			} else if (album2 == null) {
+				album2 = new Album(albumName);
+				System.out.println("Success!");
+			} else if (album3 == null) {
+				album3 = new Album(albumName);
+				System.out.println("Success!");
+			} else {
+				System.out.println("Fail!\nThe maximum number of albums has been reached");
+			}
 		} else {
-			System.out.println("Fail!");
+			System.out.println("An album with that name already exists!");
 		}
 		returnToMenu(scanner);
+	}
+
+
+	private boolean doesAlbumExist(String albumName) {
+		if (album1 != null) {
+			if (album1.getName().equalsIgnoreCase(albumName)) {
+				return true;
+			}
+		} if (album2 != null) {
+			if (album2.getName().equalsIgnoreCase(albumName)) {
+				return true;
+			}
+		} if (album3 != null) {
+			if (album3.getName().equalsIgnoreCase(albumName)) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 
