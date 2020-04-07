@@ -35,16 +35,16 @@ public class Album {
     public String listAllSongs() {
         String songList = "";
         if (song1 != null) {
-            songList += "Song1: " + song1.getName() + "\n";
+            songList += "Song1:" + "\nName:" + song1.getName() + "\nArtist:" + song1.getArtist() + "\nDuration:" + song1.getDuration() + "\nGenre:" + song1.getGenre() + "\n\n";
         }
         if (song2 != null) {
-            songList += "Song2: " + song2.getName() + "\n";
+            songList += "Song2:" + "\nName:" + song2.getName() + "\nArtist:" + song2.getArtist() + "\nDuration:" + song2.getDuration() + "\nGenre:" + song2.getGenre() + "\n\n";
         }
         if (song3 != null) {
-            songList += "Song3: " + song3.getName() + "\n";
+            songList += "Song3:" + "\nName:" + song3.getName() + "\nArtist:" + song3.getArtist() + "\nDuration:" + song3.getDuration() + "\nGenre:" + song3.getGenre() + "\n\n";
         }
         if (song4 != null) {
-            songList += "Song4: " + song4.getName() + "\n";
+            songList += "Song4:" + "\nName:" + song4.getName() + "\nArtist:" + song4.getArtist() + "\nDuration:" + song4.getDuration() + "\nGenre:" + song4.getGenre() + "\n\n";
         }
         return songList;
     }
@@ -52,19 +52,19 @@ public class Album {
 
     public String listSongsUnderTime(int timeMax) {
         String songList = "";
-        if (song1 != null) {
-            if (song1.getDuration() <= timeMax) {
-                songList += song1.getName();
+        if (this.song1 != null) {
+            if (this.song1.getDuration() <= timeMax) {
+                songList += this.song1.getArtist() + " - " + this.song1.getName() + "\n";
             }
         }
-        if (song2 != null) {
-            if (song2.getDuration() <= timeMax) {
-                songList += song2.getName();
+        if (this.song2 != null) {
+            if (this.song2.getDuration() <= timeMax) {
+                songList += this.song2.getArtist() + " - " + this.song2.getName() + "\n";
             }
         }
-        if (song3 != null) {
-            if (song3.getDuration() <= timeMax) {
-                songList += song3.getName();
+        if (this.song3 != null) {
+            if (this.song3.getDuration() <= timeMax) {
+                songList += this.song3.getArtist() + " - " + this.song3.getName() + "\n";
             }
         }
         return  songList;

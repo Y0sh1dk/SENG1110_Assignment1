@@ -139,17 +139,33 @@ public class SongCollection
 		System.out.println("Please Enter Album Name:");
 		scanner.nextLine(); // to throw out '/n'
 		albumName = scanner.nextLine().strip();
-		if (album1 != null) {
-			if (album1.getName().equalsIgnoreCase(albumName)) {
-				System.out.println("Album1:\n" + album1.listAllSongs());
+		if (doesAlbumExist(albumName)) {
+			if (album1 != null) {
+				if (album1.getName().equalsIgnoreCase(albumName)) {
+					if (album1.listAllSongs().equals("")) {
+						System.out.println("Album1: " + album1.getName() + "\nEmpty!");
+					} else {
+						System.out.println("Album1: " + album1.getName() + "\n" + album1.listAllSongs());
+					}
+				}
 			}
-		} if (album2 != null) {
-			if (album2.getName().equalsIgnoreCase(albumName)) {
-				System.out.println("Album2:\n" + album2.listAllSongs());
+			if (album2 != null) {
+				if (album2.getName().equalsIgnoreCase(albumName)) {
+					if (album2.listAllSongs().equals("")) {
+						System.out.println("Album1: " + album2.getName() + "\nEmpty!");
+					} else {
+						System.out.println("Album1: " + album2.getName() + "\n" + album2.listAllSongs());
+					}
+				}
 			}
-		} if (album3 != null) {
-			if (album3.getName().equalsIgnoreCase(albumName)) {
-				System.out.println("Album3:\n" + album3.listAllSongs());
+			if (album3 != null) {
+				if (album3.getName().equalsIgnoreCase(albumName)) {
+					if (album3.listAllSongs().equals("")) {
+						System.out.println("Album1: " + album3.getName() + "\nEmpty!");
+					} else {
+						System.out.println("Album1: " + album3.getName() + "\n" + album3.listAllSongs());
+					}
+				}
 			}
 		} else {
 			System.out.println("No such Album!");
@@ -210,7 +226,7 @@ public class SongCollection
 		} else if (songcode == 2) {
 			System.out.println("Adding this song will exceed the time limit of album");
 		} else if (songcode == 3) {
-			System.out.println("Song Already exists in album");
+			System.out.println("That Song Already exists in album");
 		}
 		returnToMenu(scanner);
 	}
@@ -270,6 +286,7 @@ public class SongCollection
 			songList += album3.listSongsUnderTime(time);
 		}
 		System.out.println(songList);
+		scanner.nextLine(); // to throw out '/n'
 		returnToMenu(scanner);
 	}
 
@@ -279,7 +296,7 @@ public class SongCollection
 		System.out.println("Please Enter Genre:");
 		scanner.nextLine(); // to throw out '/n'
 		genre = scanner.nextLine().strip();
-		System.out.println("All songs of the genre" + genre + ":");
+		System.out.println("All songs of the genre " + genre + ":");
 		String songsOfGenreList = "";
 		if (album1 != null) {
 			songsOfGenreList += "Album1:\n" + album1.songsOfGenre(genre) + "\n";
@@ -302,9 +319,9 @@ public class SongCollection
 	private String getValidGenre(Scanner scanner) {
 		boolean valid = false;
 		String genre = "";
+		scanner.nextLine(); // to throw out '/n'
 		while (!valid) {
 			System.out.println("Please enter song Genre:");
-			scanner.nextLine(); // to throw out '/n'
 			genre = scanner.nextLine();
 			if (genre.equalsIgnoreCase("rock") || genre.equalsIgnoreCase("pop") || genre.equalsIgnoreCase("hip-hop") || genre.equalsIgnoreCase("bossa nova")) {
 				valid = true;
@@ -312,6 +329,7 @@ public class SongCollection
 				System.out.println("Invalid Genre");
 			}
 		}
+//		scanner.nextLine(); // to throw out '/n'
 		return genre;
 	}
 
