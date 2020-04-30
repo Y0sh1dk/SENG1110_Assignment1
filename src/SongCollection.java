@@ -194,46 +194,60 @@ public class SongCollection
 			albumName = scanner.nextLine().strip();
 			if (album1 != null) {
 				if (album1.getName().equalsIgnoreCase(albumName)) {
-					System.out.println("Please enter song Name:");
-					String songName = scanner.nextLine();
-					System.out.println("Please enter song Artist:");
-					String songArtist = scanner.nextLine();
-					System.out.println("Please enter song Duration (in seconds):");
-					int songDuration = scanner.nextInt();
-					String songGenre = getValidGenre(scanner);
-					songcode = album1.addSong(songName, songArtist, songDuration, songGenre);
-					albumcode = 1;
+					if (album1.howManySongs() != 4) {
+						System.out.println("Please enter song Name:");
+						String songName = scanner.nextLine();
+						System.out.println("Please enter song Artist:");
+						String songArtist = scanner.nextLine();
+						System.out.println("Please enter song Duration (in seconds):");
+						int songDuration = scanner.nextInt();
+						String songGenre = getValidGenre(scanner);
+						songcode = album1.addSong(songName, songArtist, songDuration, songGenre);
+						albumcode = 1;
+					} else {
+						albumcode = 2;
+					}
 				}
 			}
 			if (album2 != null) {
 				if (album2.getName().equalsIgnoreCase(albumName)) {
-					System.out.println("Please enter song Name:");
-					String songName = scanner.nextLine();
-					System.out.println("Please enter song Artist:");
-					String songArtist = scanner.nextLine();
-					System.out.println("Please enter song Duration (in seconds):");
-					int songDuration = scanner.nextInt();
-					String songGenre = getValidGenre(scanner);
-					songcode = album2.addSong(songName, songArtist, songDuration, songGenre);
-					albumcode = 1;
+					if (album2.howManySongs() != 4) {
+						System.out.println("Please enter song Name:");
+						String songName = scanner.nextLine();
+						System.out.println("Please enter song Artist:");
+						String songArtist = scanner.nextLine();
+						System.out.println("Please enter song Duration (in seconds):");
+						int songDuration = scanner.nextInt();
+						String songGenre = getValidGenre(scanner);
+						songcode = album2.addSong(songName, songArtist, songDuration, songGenre);
+						albumcode = 1;
+					} else {
+						albumcode = 2;
+					}
 				}
 			}
 			if (album3 != null) {
 				if (album3.getName().equalsIgnoreCase(albumName)) {
-					System.out.println("Please enter song Name:");
-					String songName = scanner.nextLine();
-					System.out.println("Please enter song Artist:");
-					String songArtist = scanner.nextLine();
-					System.out.println("Please enter song Duration (in seconds):");
-					int songDuration = scanner.nextInt();
-					String songGenre = getValidGenre(scanner);
-					songcode = album3.addSong(songName, songArtist, songDuration, songGenre);
-					albumcode = 1;
+					if (album3.howManySongs() != 4) {
+						System.out.println("Please enter song Name:");
+						String songName = scanner.nextLine();
+						System.out.println("Please enter song Artist:");
+						String songArtist = scanner.nextLine();
+						System.out.println("Please enter song Duration (in seconds):");
+						int songDuration = scanner.nextInt();
+						String songGenre = getValidGenre(scanner);
+						songcode = album3.addSong(songName, songArtist, songDuration, songGenre);
+						albumcode = 1;
+					} else {
+						albumcode = 2;
+					}
 				}
 //			TODO: Test this madness
 			}
 			if (albumcode == 0) {
 				System.out.println("No such album exists");
+			} else if (albumcode == 2) {
+				System.out.println("Album currently contains the maximum number of songs (Max 4)");
 			} else if (songcode == 0) {
 				System.out.println("Album already contains 4 songs");
 			} else if (songcode == 1) {

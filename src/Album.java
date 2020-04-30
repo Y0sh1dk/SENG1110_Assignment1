@@ -208,4 +208,22 @@ public class Album {
         }
         return songOfGenreList;
     }
+
+
+    public int howManySongs() {
+        int n=0;
+        if (song1 != null) {
+            n++;
+        }
+        if (song2 != null) {
+            n++;
+        }
+        if (song3 != null) {
+            n++;
+        }
+        if (song4 != null) {
+            n++;
+        }
+        return n;
+    }
 }
