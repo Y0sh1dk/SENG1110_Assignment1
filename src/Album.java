@@ -32,19 +32,35 @@ public class Album {
     }
 
     //    TODO: test listSongs method
-    public String listAllSongs() {
+    public String listAllSongs(boolean details) {
         String songList = "";
-        if (song1 != null) {
-            songList += "Song1:" + "\nName:" + song1.getName() + "\nArtist:" + song1.getArtist() + "\nDuration:" + song1.getDuration() + "\nGenre:" + song1.getGenre() + "\n\n";
+        if (details == true) {
+            if (song1 != null) {
+                songList += "\tSong1:" + "\n\tName:" + song1.getName() + "\n\tArtist:" + song1.getArtist() + "\n\tDuration:" + song1.getDuration() + "\n\tGenre:" + song1.getGenre() + "\n\n";
+            }
+            if (song2 != null) {
+                songList += "\tSong2:" + "\n\tName:" + song2.getName() + "\n\tArtist:" + song2.getArtist() + "\n\tDuration:" + song2.getDuration() + "\n\tGenre:" + song2.getGenre() + "\n\n";
+            }
+            if (song3 != null) {
+                songList += "\tSong3:" + "\n\tName:" + song3.getName() + "\n\tArtist:" + song3.getArtist() + "\n\tDuration:" + song3.getDuration() + "\n\tGenre:" + song3.getGenre() + "\n\n";
+            }
+            if (song4 != null) {
+                songList += "\tSong4:" + "\n\tName:" + song4.getName() + "\n\tArtist:" + song4.getArtist() + "\n\tDuration:" + song4.getDuration() + "\n\tGenre:" + song4.getGenre() + "\n\n";
+            }
         }
-        if (song2 != null) {
-            songList += "Song2:" + "\nName:" + song2.getName() + "\nArtist:" + song2.getArtist() + "\nDuration:" + song2.getDuration() + "\nGenre:" + song2.getGenre() + "\n\n";
-        }
-        if (song3 != null) {
-            songList += "Song3:" + "\nName:" + song3.getName() + "\nArtist:" + song3.getArtist() + "\nDuration:" + song3.getDuration() + "\nGenre:" + song3.getGenre() + "\n\n";
-        }
-        if (song4 != null) {
-            songList += "Song4:" + "\nName:" + song4.getName() + "\nArtist:" + song4.getArtist() + "\nDuration:" + song4.getDuration() + "\nGenre:" + song4.getGenre() + "\n\n";
+        else { // If details == false
+            if (song1 != null) {
+                songList += "\tSong1:" + "\n\tName:" + song1.getName() + "\n\tArtist:" + song1.getArtist() + "\n\n";
+            }
+            if (song2 != null) {
+                songList += "\tSong2:" + "\n\tName:" + song2.getName() + "\n\tArtist:" + song1.getArtist() + "\n\n";
+            }
+            if (song3 != null) {
+                songList += "\tSong3:" + "\n\tName:" + song3.getName() + "\n\tArtist:" + song3.getArtist() + "\n\n";
+            }
+            if (song4 != null) {
+                songList += "\tSong4:" + "\n\tName:" + song4.getName() + "\n\tArtist:" + song4.getArtist() + "\n\n";
+            }
         }
         return songList;
     }

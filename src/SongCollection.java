@@ -1,8 +1,5 @@
 import java.util.*;
 
-//TODO: Make not case sensitive, strip white space
-
-
 public class SongCollection
 {
 	private Album album1 = null, album2 = null, album3 = null;
@@ -57,18 +54,21 @@ public class SongCollection
 		}
 	}
 
-
+// TODO: list song names as well, no details
 	private void listAlbums(Scanner scanner) {
 		scanner.nextLine(); // to throw out '/n'
 		String albumList = "";
 		if (album1 != null) {
-			albumList += "Album1 Name: " + album1.getName() + "\n";
+			albumList += "Album1 Name: " + album1.getName() + "\n"; // get album name
+			albumList += album1.listAllSongs(false);
 		}
 		if (album2 != null) {
-			albumList += "Album2 Name: " + album2.getName() + "\n";
+			albumList += "Album2 Name: " + album2.getName() + "\n"; // get album name
+			albumList += album2.listAllSongs(false);
 		}
 		if (album3 != null) {
-			albumList += "Album3 Name: " + album3.getName() + "\n";
+			albumList += "Album3 Name: " + album3.getName() + "\n"; // get album name
+			albumList += album3.listAllSongs(false);
 		}
 		if (albumList.equals("")) {
 			System.out.println("No albums have been created yet!");
@@ -142,28 +142,28 @@ public class SongCollection
 		if (doesAlbumExist(albumName)) {
 			if (album1 != null) {
 				if (album1.getName().equalsIgnoreCase(albumName)) {
-					if (album1.listAllSongs().equals("")) {
+					if (album1.listAllSongs(true).equals("")) {
 						System.out.println("Album1: " + album1.getName() + "\nEmpty!");
 					} else {
-						System.out.println("Album1: " + album1.getName() + "\n" + album1.listAllSongs());
+						System.out.println("Album1: " + album1.getName() + "\n" + album1.listAllSongs(true));
 					}
 				}
 			}
 			if (album2 != null) {
 				if (album2.getName().equalsIgnoreCase(albumName)) {
-					if (album2.listAllSongs().equals("")) {
+					if (album2.listAllSongs(true).equals("")) {
 						System.out.println("Album1: " + album2.getName() + "\nEmpty!");
 					} else {
-						System.out.println("Album1: " + album2.getName() + "\n" + album2.listAllSongs());
+						System.out.println("Album1: " + album2.getName() + "\n" + album2.listAllSongs(true));
 					}
 				}
 			}
 			if (album3 != null) {
 				if (album3.getName().equalsIgnoreCase(albumName)) {
-					if (album3.listAllSongs().equals("")) {
+					if (album3.listAllSongs(true).equals("")) {
 						System.out.println("Album1: " + album3.getName() + "\nEmpty!");
 					} else {
-						System.out.println("Album1: " + album3.getName() + "\n" + album3.listAllSongs());
+						System.out.println("Album1: " + album3.getName() + "\n" + album3.listAllSongs(true));
 					}
 				}
 			}
