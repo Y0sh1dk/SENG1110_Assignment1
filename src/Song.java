@@ -1,3 +1,11 @@
+/**
+ * Class: Song
+ * A class used to represent a song.
+ *
+ * @author Yosiah de Koeyer
+ * @Student_Number c3329520
+ */
+
 public class Song {
 
 	private String name;
@@ -14,7 +22,7 @@ public class Song {
 		this.genre = inputGenre;
 	}
 
-	// Song constructor when no args are given
+	// Song constructor when no args are given (Never used)
 	public Song() {
 		this.name = null;
 		this.artist = null;

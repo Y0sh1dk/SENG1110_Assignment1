@@ -1,3 +1,12 @@
+/**
+ * Class: Album
+ * A Class used to represent a Album. Is used to store instances of the Song class and provide all functionality
+ * relating to a album.
+ *
+ * @author Yosiah de Koeyer
+ * @Student_Number c3329520
+ */
+
 public class Album {
 
     private String name;

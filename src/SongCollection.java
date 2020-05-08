@@ -1,3 +1,11 @@
+/**
+ * Class: SongCollection
+ * Class that holds main program loop and allows for users to interact with Album and Song class's through a TIO
+ *
+ * @author Yosiah de Koeyer
+ * @Student_Number c3329520
+ */
+
 import java.util.*;
 
 public class SongCollection
