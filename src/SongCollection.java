@@ -8,7 +8,7 @@ public class SongCollection
 	private void run() {
 		while (true) {
 			Scanner scanner = new Scanner(System.in);
-			int option;
+			int option = 0;
 			System.out.println("\n1) List albums");
 			System.out.println("2) Create album");
 			System.out.println("3) Delete album");
@@ -19,7 +19,11 @@ public class SongCollection
 			System.out.println("8) List all songs of a specific genre");
 			System.out.println("9) Exit program\n");
 			System.out.println("Please Select a Option:");
-			option = scanner.nextInt();
+			try {
+				option = scanner.nextInt();
+			} catch (Exception InputMismatchException){
+				System.out.println("Did not Provide a integer");
+			}
 
 			switch (option) {
 				case 1:
@@ -49,6 +53,8 @@ public class SongCollection
 				case 9:
 					System.out.println("Exiting Program...");
 					System.exit(0);
+					break;
+				default:
 					break;
 			}
 		}
