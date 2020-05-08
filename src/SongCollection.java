@@ -176,7 +176,7 @@ public class SongCollection
 				System.out.println("No album with that name exists");
 			}
 		} else {
-			System.out.println("There are currently no albums created!");
+			System.out.println("No albums have been created yet!");
 			scanner.nextLine();
 		}
 		returnToMenu(scanner);  // Make user press Enter
@@ -189,41 +189,46 @@ public class SongCollection
 	 *
 	 * @param scanner scanner object
 	 */
-	private void listSongsFromAlbum(Scanner scanner) { // TODO: if there are albums
-		String albumName;
-		System.out.println("Please Enter Album Name:");
-		scanner.nextLine(); // to throw out '/n'
-		albumName = scanner.nextLine().strip();  // Strip whitespace
-		if (doesAlbumExist(albumName)) { // If a album with the given name exists
-			if (album1 != null) {
-				if (album1.getName().equalsIgnoreCase(albumName)) {  // if this albums name is equal to input
-					if (album1.listAllSongs(true).equals("")) {   // If album.listAllSongs returns nothing
-						System.out.println("Album1: " + album1.getName() + "\nEmpty!");
-					} else {
-						System.out.println("Album1: " + album1.getName() + "\n" + album1.listAllSongs(true));   // Prints all songs
+	private void listSongsFromAlbum(Scanner scanner) {
+		if (checkAlbums() != 1 ) {  // If there are albums
+			String albumName;
+			System.out.println("Please Enter Album Name:");
+			scanner.nextLine(); // to throw out '/n'
+			albumName = scanner.nextLine().strip();  // Strip whitespace
+			if (doesAlbumExist(albumName)) { // If a album with the given name exists
+				if (album1 != null) {
+					if (album1.getName().equalsIgnoreCase(albumName)) {  // if this albums name is equal to input
+						if (album1.listAllSongs(true).equals("")) {   // If album.listAllSongs returns nothing
+							System.out.println("Album1: " + album1.getName() + "\nEmpty!");
+						} else {
+							System.out.println("Album1: " + album1.getName() + "\n" + album1.listAllSongs(true));   // Prints all songs
+						}
 					}
 				}
-			}
-			if (album2 != null) {
-				if (album2.getName().equalsIgnoreCase(albumName)) {  // if this albums name is equal to input
-					if (album2.listAllSongs(true).equals("")) {   // If album.listAllSongs returns nothing
-						System.out.println("Album1: " + album2.getName() + "\nEmpty!");
-					} else {
-						System.out.println("Album1: " + album2.getName() + "\n" + album2.listAllSongs(true));   // Prints all songs
+				if (album2 != null) {
+					if (album2.getName().equalsIgnoreCase(albumName)) {  // if this albums name is equal to input
+						if (album2.listAllSongs(true).equals("")) {   // If album.listAllSongs returns nothing
+							System.out.println("Album1: " + album2.getName() + "\nEmpty!");
+						} else {
+							System.out.println("Album1: " + album2.getName() + "\n" + album2.listAllSongs(true));   // Prints all songs
+						}
 					}
 				}
-			}
-			if (album3 != null) {
-				if (album3.getName().equalsIgnoreCase(albumName)) {  // if this albums name is equal to input
-					if (album3.listAllSongs(true).equals("")) {   // If album.listAllSongs returns nothing
-						System.out.println("Album1: " + album3.getName() + "\nEmpty!");
-					} else {
-						System.out.println("Album1: " + album3.getName() + "\n" + album3.listAllSongs(true));   // Prints all songs
+				if (album3 != null) {
+					if (album3.getName().equalsIgnoreCase(albumName)) {  // if this albums name is equal to input
+						if (album3.listAllSongs(true).equals("")) {   // If album.listAllSongs returns nothing
+							System.out.println("Album1: " + album3.getName() + "\nEmpty!");
+						} else {
+							System.out.println("Album1: " + album3.getName() + "\n" + album3.listAllSongs(true));   // Prints all songs
+						}
 					}
 				}
+			} else {
+				System.out.println("No such Album!");
 			}
 		} else {
-			System.out.println("No such Album!");
+			System.out.println("No albums have been created yet!");
+			scanner.nextLine(); // to throw out '/n'
 		}
 		returnToMenu(scanner);  // Make user press Enter
 	}
