@@ -418,7 +418,7 @@ public class SongCollection
 			System.out.println("Please Enter Genre:");
 			scanner.nextLine(); // to throw out '/n'
 			genre = scanner.nextLine().strip();
-			System.out.println("All songs of the genre " + genre + ":");
+			System.out.println("\nAll songs of the genre " + genre + ":");
 			String songsOfGenreList = "";
 			if (album1 != null) {
 				songsOfGenreList += "Album1:\n" + album1.songsOfGenre(genre) + "\n";

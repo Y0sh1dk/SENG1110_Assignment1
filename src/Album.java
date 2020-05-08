@@ -252,7 +252,11 @@ public class Album {
                 songOfGenreList += "Song4: " + this.song3.getArtist() + " - " + this.song4.getName() + "\n";
             }
         }
-        return songOfGenreList;
+        if (songOfGenreList.equals("")) {
+            return("None!");
+        } else {
+            return songOfGenreList;
+        }
     }
 
     /**
