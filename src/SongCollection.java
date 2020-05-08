@@ -421,13 +421,13 @@ public class SongCollection
 			System.out.println("\nAll songs of the genre " + genre + ":");
 			String songsOfGenreList = "";
 			if (album1 != null) {
-				songsOfGenreList += "Album1:\n" + album1.songsOfGenre(genre) + "\n";
+				songsOfGenreList += "Album1: " + album1.getName() + "\n" + album1.songsOfGenre(genre) + "\n";
 			}
 			if (album2 != null) {
-				songsOfGenreList += "Album2:\n" + album2.songsOfGenre(genre) + "\n";
+				songsOfGenreList += "Album2: " + album2.getName() + "\n" + album2.songsOfGenre(genre) + "\n";
 			}
 			if (album3 != null) {
-				songsOfGenreList += "Album3:\n" + album3.songsOfGenre(genre) + "\n";
+				songsOfGenreList += "Album3: " + album3.getName() + "\n" + album3.songsOfGenre(genre) + "\n";
 			}
 			if (songsOfGenreList.equals("")) {
 				System.out.println("None");
