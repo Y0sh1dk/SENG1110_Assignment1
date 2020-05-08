@@ -4,6 +4,7 @@
  *
  * @author Yosiah de Koeyer
  * @Student_Number c3329520
+ * @Last_Edit 08/05/2020
  */
 
 import java.util.*;
@@ -68,7 +69,12 @@ public class SongCollection
 		}
 	}
 
-
+	/** Method: listAlbums()
+	 *
+	 * Lists all current albums
+	 *
+	 * @param scanner scanner object
+	 */
 	private void listAlbums(Scanner scanner) {
 		scanner.nextLine(); // to throw out '/n'
 		String albumList = "";
@@ -92,7 +98,12 @@ public class SongCollection
 		returnToMenu(scanner);
 	}
 
-
+	/** Method: createAlbum()
+	 *
+	 * Creates an album as specified by the user
+	 *
+	 * @param scanner scanner object
+	 */
 	private void createAlbum(Scanner scanner) {
 		if (checkAlbums() != 0 ) {
 			String albumName;
@@ -120,7 +131,12 @@ public class SongCollection
 		returnToMenu(scanner);
 	}
 
-
+	/** Method: deleteAlbum()
+	 *
+	 * Deletes a album specified by the user
+	 *
+	 * @param scanner scanner object
+	 */
 	private void deleteAlbum(Scanner scanner) {
 		if (checkAlbums() != 1 ) { // No albums left to delete
 			int albumcode = 0;
@@ -158,7 +174,12 @@ public class SongCollection
 		returnToMenu(scanner);
 	}
 
-
+	/** Method: listSongsFromAlbum()
+	 *
+	 * Lists all songs from a Album
+	 *
+	 * @param scanner scanner object
+	 */
 	private void listSongsFromAlbum(Scanner scanner) {
 		String albumName;
 		System.out.println("Please Enter Album Name:");
@@ -198,7 +219,12 @@ public class SongCollection
 		returnToMenu(scanner);
 	}
 
-
+	/** Method: addSongToAlbum()
+	 *
+	 * Adds a song specified by the user to a pre existing album
+	 *
+	 * @param scanner scanner object
+	 */
 	private void addSongToAlbum(Scanner scanner) {
 		if (checkAlbums() != 1 ) {
 			String albumName;
@@ -256,7 +282,6 @@ public class SongCollection
 						albumcode = 2;
 					}
 				}
-//			TODO: Test this madness
 			}
 			if (albumcode == 0) {
 				System.out.println("No such album exists");
@@ -278,7 +303,12 @@ public class SongCollection
 		returnToMenu(scanner);
 	}
 
-
+	/** Method: deleteSongFromAlbum()
+	 *
+	 * deletes a song specified by the user from a album
+	 *
+	 * @param scanner scanner object
+	 */
 	private void deleteSongFromAlbum(Scanner scanner) {
 		if (checkAlbums() != 1 ) {
 			int albumcode = 0, songcode = 0;
@@ -322,7 +352,12 @@ public class SongCollection
 		returnToMenu(scanner);
 	}
 
-
+	/** Method: listSongsOfGenre()
+	 *
+	 * Lists all songs under a time specified by the user
+	 *
+	 * @param scanner scanner object
+	 */
 	private void listSongsUnderTime(Scanner scanner) {
 		if (checkAlbums() != 1 ) {
 			int time;
@@ -353,7 +388,12 @@ public class SongCollection
 		returnToMenu(scanner);
 	}
 
-
+	/** Method: listSongsOfGenre()
+	 *
+	 * Lists all songs of a genre specified by the user
+	 *
+	 * @param scanner scanner object
+	 */
 	private void listSongsOfGenre(Scanner scanner) {
 		if (checkAlbums() != 1 ) {
 			String genre;
@@ -383,7 +423,12 @@ public class SongCollection
 		returnToMenu(scanner);
 	}
 
-
+	/** Method: addSong()
+	 *
+	 * Gets a valid genre from the user, valid genres are "rock", "pop", "hip-hop" and "bossa nova"
+	 *
+	 * @param scanner scanner object
+	 */
 	private String getValidGenre(Scanner scanner) {
 		boolean valid = false;
 		String genre = "";
@@ -397,11 +442,14 @@ public class SongCollection
 				System.out.println("Invalid Genre");
 			}
 		}
-//		scanner.nextLine(); // to throw out '/n'
 		return genre;
 	}
 
-
+	/** Method: doesAlbumExist()
+	 *
+	 * @param albumName String containing name of album
+	 * @return Boolean, true if album exists, false if doesnt exist
+	 */
 	private boolean doesAlbumExist(String albumName) {
 		if (album1 != null) {
 			if (album1.getName().equalsIgnoreCase(albumName)) {
@@ -419,7 +467,12 @@ public class SongCollection
 		return false;
 	}
 
-
+	/** Method: checkAlbums()
+	 *
+	 * Checks if all albums have been created, non have been created or in the middle
+	 *
+	 * @return Int, 0 if all created, 1 if non created, 2 if in the middle
+	 */
 	private int checkAlbums() {
 		if (album1 != null && album2 != null && album3 != null) {
 			// were full boys

@@ -5,6 +5,7 @@
  *
  * @author Yosiah de Koeyer
  * @Student_Number c3329520
+ * @Last_Edit 08/05/2020
  */
 
 public class Album {
@@ -22,16 +23,12 @@ public class Album {
 
     }
 
-    //  Constructor if no args given
+    //  Constructor if no args given (Never used)
     public Album() {
         this.name = null;
-//        song1 = new Song();
-//        song2 = new Song();
-//        song3 = new Song();
-//        song4 = new Song();
     }
 
-
+// Getter/Setter methods
     public void setName(String inputName) {
         this.name = inputName;
     }
@@ -40,7 +37,11 @@ public class Album {
         return this.name;
     }
 
-    //    TODO: test listSongs method
+    /** Method: listAllSongs()
+     *
+     * @param details if true, return all details, if not return just name and artist
+     * @return string containing all songs, with or without full details
+     */
     public String listAllSongs(boolean details) {
         String songList = "";
         if (details == true) {
@@ -74,7 +75,11 @@ public class Album {
         return songList;
     }
 
-
+    /** Method: listsSongsUnderTime()
+     *
+     * @param timeMax maximum time to list songs under
+     * @return string containing lists of songs under certain time
+     */
     public String listSongsUnderTime(int timeMax) {
         String songList = "";
         if (this.song1 != null) {
@@ -95,7 +100,11 @@ public class Album {
         return  songList;
     }
 
-
+    /** Method: deleteSong()
+     *
+     * @param songName string containing name of song
+     * @return int, 1 if successful, 0 if not successful
+     */
     public int deleteSong(String songName) {
         if (this.song1 != null) {
             if (this.song1.getName().equalsIgnoreCase(songName)) {
@@ -117,8 +126,14 @@ public class Album {
     }
 
 
-    //    Adds song to Album, Will try song1 first, then song2, song3...
-//    Return 1 if successful, return 0 if unsucessful
+    /** Method: addSong()
+     *
+     * @param inputName String containing name of song
+     * @param inputArtist String containing artist of song
+     * @param inputDuration Int containing duration of song
+     * @param inputGenre String containing genre of song
+     * @return Int, 0 if album is full, 1 if successful, 2 if adding will exceed time limit, 3 if already exists
+     */
     public int addSong(String inputName, String inputArtist, int inputDuration, String inputGenre) {
         if (!this.doesSongExist(inputName, inputArtist, inputDuration)) { // if song doesnt exist, continue
             this.calculateTotalTime();
@@ -150,7 +165,10 @@ public class Album {
         }
     }
 
-    //    Calculate total runtime of all songs
+    /** Method: calculateTotalTime()
+     *
+     * Calculates total run time of album and assigns it to totalTime attribute
+     */
     private void calculateTotalTime() {
         this.totalTime = 0;
         int time = 0;
@@ -169,7 +187,15 @@ public class Album {
         this.totalTime = time;
     }
 
-//  Returns true of song of same name, artist and duration exists, else returns false
+    /** Method: doesSongExist()
+     *
+     * Checks if a song exists
+     *
+     * @param inputName String containing name of song
+     * @param inputArtist String containing artist of song
+     * @param inputDuration Int containing duration of song
+     * @return Boolean, True if successful, False if not successful
+     */
     private boolean doesSongExist(String inputName, String inputArtist, int inputDuration) {
         if (this.song1 != null) {
             if (this.song1.getName().equalsIgnoreCase(inputName) && this.song1.getArtist().equalsIgnoreCase(inputArtist) && this.song1.getDuration() == inputDuration) {
@@ -192,7 +218,11 @@ public class Album {
     }
 
 
-    //    Returns songs of certain genre
+    /** Method: songsOfGenre
+     *
+     * @param inputgenre genre of which to list songs from
+     * @return string containing a list of songs of a specific genre
+     */
     public String songsOfGenre(String inputgenre) {
         String songOfGenreList = "";
         if (this.song1 != null) {
@@ -218,7 +248,9 @@ public class Album {
         return songOfGenreList;
     }
 
-
+    /** Method: howManySongs()
+     * @return int containing number of songs present in album
+     */
     public int howManySongs() {
         int n=0;
         if (song1 != null) {

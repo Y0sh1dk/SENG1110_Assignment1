@@ -4,6 +4,7 @@
  *
  * @author Yosiah de Koeyer
  * @Student_Number c3329520
+ * @Last_Edit 08/05/2020
  */
 
 public class Song {
@@ -31,7 +32,7 @@ public class Song {
 	}
 
 
-
+// Getter/Setter methods from here down
 	public void setName(String inputName) {
 		 this.name = inputName;
 	}
